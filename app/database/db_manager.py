@@ -1,6 +1,14 @@
 from app.database.database import async_session_maker
 from app.repositories.roles import RolesRepository
 from app.repositories.users import UsersRepository
+from app.repositories.items import ItemsRepository
+from app.repositories.categories import CategoriesRepository
+from app.repositories.brands import BrandsRepository
+from app.repositories.orders import OrdersRepository
+from app.repositories.order_items import OrderItemsRepository
+from app.repositories.cart_items import CartItemsRepository
+from app.repositories.comparisons import ComparisonsRepository, ComparisonItemsRepository
+from app.repositories.reviews import ReviewsRepository
 
 
 class DBManager:
@@ -9,10 +17,20 @@ class DBManager:
 
     async def __aenter__(self):
         self.session = self.session_factory()
-        # TODO Добавить сюда созданные репозитории
-        # Пример:
+        
+        # Подключаем все репозитории
         self.users = UsersRepository(self.session)
         self.roles = RolesRepository(self.session)
+        self.items = ItemsRepository(self.session)
+        self.categories = CategoriesRepository(self.session)
+        self.brands = BrandsRepository(self.session)
+        self.orders = OrdersRepository(self.session)
+        self.order_items = OrderItemsRepository(self.session)
+        self.cart_items = CartItemsRepository(self.session)
+        self.comparisons = ComparisonsRepository(self.session)
+        self.comparison_items = ComparisonItemsRepository(self.session)
+        self.reviews = ReviewsRepository(self.session)
+        
         return self
 
     async def __aexit__(self, *args):

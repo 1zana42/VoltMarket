@@ -1,15 +1,55 @@
 [project]
-name = "individual-project-template"
-version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.12"
+name = "voltmarket"
+version = "1.0.0"
+description = "Интернет-магазин электроники VoltMarket"
+requires-python = ">=3.11"
 dependencies = [
-    "aiosqlite>=0.21.0",
-    "alembic>=1.17.1",
-    "bcrypt==4.0.1",
-    "black>=25.9.0",
-    "fastapi[all]>=0.120.4",
+    "fastapi[all]>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "sqlalchemy>=2.0.23",
+    "asyncpg>=0.29.0",
+    "alembic>=1.12.1",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-jose[cryptography]>=3.3.0",
     "passlib[bcrypt]>=1.7.4",
-    "pydantic[email]>=2.12.3",
-    "pyjwt>=2.10.1",
+    "python-multipart>=0.0.6",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "black>=23.11.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.0",
+    "flake8>=6.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
