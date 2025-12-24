@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Каталог — VoltMarket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+  <!-- Общие элементы (header, footer, auth) как в index.html -->
+  <script type="module">
+    // Динамически загружаем общие элементы
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Загружаем header
+      const headerResponse = await fetch('components/header.html');
+      const headerHTML = await headerResponse.text();
+      document.body.insertAdjacentHTML('afterbegin', headerHTML);
+      
+      // Загружаем footer
+      const footerResponse = await fetch('components/footer.html');
+      const footerHTML = await footerResponse.text();
+      document.body.insertAdjacentHTML('beforeend', footerHTML);
+      
+      // Загружаем auth modal
+      const authResponse = await fetch('components/auth.html');
+      const authHTML = await authResponse.text();
+      document.body.insertAdjacentHTML('afterbegin', authHTML);
+      
+      // Инициализируем скрипты
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'catalog.js';
+      document.body.appendChild(script);
+    });
+  </script>
+
+  <main class="catalog-page">
+    <div class="container">
+      <div class="catalog-header">
+        <h1>Каталог товаров</h1>
+        <div class="catalog-controls">
+          <div class="sort-control">
+            <label for="sortSelect">Сортировка:</label>
+            <select id="sortSelect">
+              <option value="created_at_desc">Сначала новые</option>
+              <option value="price_asc">Сначала дешевые</option>
+              <option value="price_desc">Сначала дорогие</option>
+              <option value="rating_desc">По рейтингу</option>
+              <option value="name_asc">По названию (А-Я)</option>
+            </select>
+          </div>
+          <div class="view-control">
+            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="catalog-container">
+        <!-- Фильтры -->
+        <aside class="filters-sidebar">
+          <div class="filter-section">
+            <h3>Категории</h3>
+            <div id="categoryFilter" class="filter-list">
+              <!-- Категории загружаются через JS -->
+            </div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Цена</h3>
+            <div class="price-range">
+              <div class="range-inputs">
+                <input type="number" id="minPrice" placeholder="0" min="0">
+                <span>—</span>
+                <input type="number" id="maxPrice" placeholder="100000">
+              </div>
+              <button id="applyPrice" class="small-btn">Применить</button>
+            </div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Бренды</h3>
+            <div id="brandFilter" class="filter-list">
+              <!-- Бренды загружаются через JS -->
+            </div>
+          </div>
+          
+          <div class="filter-section">
+            <h3>Наличие</h3>
+            <label class="checkbox-label">
+              <input type="checkbox" id="inStockOnly">
+              <span>Только в наличии</span>
+            </label>
+          </div>
+          
+          <button id="applyFilters" class="primary-btn full">Применить фильтры</button>
+          <button id="resetFilters" class="ghost-btn full">Сбросить все</button>
+        </aside>
+        
+        <!-- Товары -->
+        <div class="products-container">
+          <div class="products-info">
+            <p id="productsCount">Найдено 0 товаров</p>
+          </div>
+          
+          <div id="productsGrid" class="products-grid grid-view">
+            <!-- Товары загружаются через JS -->
+            <div class="loading">Загрузка товаров...</div>
+          </div>
+          
+          <div class="pagination" id="pagination">
+            <!-- Пагинация -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

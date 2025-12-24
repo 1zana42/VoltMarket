@@ -1,0 +1,59 @@
+<div id="authModal" class="auth-modal" aria-hidden="true">
+  <div class="auth-content">
+    <button id="closeAuth" class="close-btn">&times;</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Вход</button>
+      <button class="auth-tab" data-tab="register">Регистрация</button>
+    </div>
+    
+    <form id="loginForm" class="auth-form active">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="loginPassword" required>
+      </div>
+      <button type="submit" class="primary-btn">Войти</button>
+    </form>
+    
+    <form id="registerForm" class="auth-form">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="registerName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="registerEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="registerPassword" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Телефон (опционально)</label>
+        <input type="tel" id="registerPhone">
+      </div>
+      <button type="submit" class="primary-btn">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+<!-- Панель корзины -->
+<div id="cartPanel" class="cart-panel" aria-hidden="true">
+  <div class="cart-header">
+    <h4><i class="fas fa-shopping-cart"></i> Корзина</h4>
+    <button id="closeCart" class="icon-btn">&times;</button>
+  </div>
+  <div id="cartItems" class="cart-items">
+    <p class="empty">Корзина пуста</p>
+  </div>
+  <div class="cart-footer">
+    <div class="total">Итого: <span id="cartTotal">0 ₽</span></div>
+    <button id="checkoutBtn" class="primary-btn full">Оформить заказ</button>
+    <button id="clearCartBtn" class="ghost-btn full">Очистить корзину</button>
+  </div>
+</div>

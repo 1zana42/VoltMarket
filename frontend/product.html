@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Товар — VoltMarket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <!-- Общие элементы загружаются как в catalog.html -->
+  
+  <main class="product-page">
+    <div class="container">
+      <!-- Хлебные крошки -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span>→</span>
+        <a href="catalog.html">Каталог</a>
+        <span>→</span>
+        <a href="#" id="categoryBreadcrumb">Категория</a>
+        <span>→</span>
+        <span id="productBreadcrumb">Товар</span>
+      </nav>
+      
+      <div class="product-detail">
+        <!-- Галерея изображений -->
+        <div class="product-gallery">
+          <div class="main-image">
+            <img id="mainImage" src="" alt="Основное изображение">
+          </div>
+          <div class="thumbnails" id="thumbnails">
+            <!-- Миниатюры -->
+          </div>
+        </div>
+        
+        <!-- Информация о товаре -->
+        <div class="product-info">
+          <h1 id="productTitle">Название товара</h1>
+          <div class="product-meta">
+            <div class="rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span id="reviewCount">0 отзывов</span>
+            </div>
+            <div class="sku">Артикул: <span id="productSKU"></span></div>
+          </div>
+          
+          <div class="price-block">
+            <div class="current-price" id="currentPrice">0 ₽</div>
+            <div class="old-price" id="oldPrice" style="display: none;">0 ₽</div>
+            <div class="discount-badge" id="discountBadge" style="display: none;">-20%</div>
+          </div>
+          
+          <div class="availability">
+            <i class="fas fa-check-circle" id="availabilityIcon"></i>
+            <span id="availabilityText">В наличии</span>
+            <span class="stock-count" id="stockCount"></span>
+          </div>
+          
+          <div class="product-actions">
+            <div class="quantity-control">
+              <button id="decreaseQty">−</button>
+              <input type="number" id="quantity" value="1" min="1" max="99">
+              <button id="increaseQty">＋</button>
+            </div>
+            <button id="addToCartBtn" class="primary-btn large">
+              <i class="fas fa-cart-plus"></i> Добавить в корзину
+            </button>
+            <button id="addToComparison" class="ghost-btn">
+              <i class="fas fa-balance-scale"></i> Сравнить
+            </button>
+            <button id="addToWishlist" class="icon-btn" title="В избранное">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          
+          <!-- Характеристики -->
+          <div class="specifications">
+            <h3>Характеристики</h3>
+            <div id="specificationsList">
+              <!-- Характеристики загружаются через JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Описание и отзывы -->
+      <div class="product-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="description">Описание</button>
+          <button class="tab-btn" data-tab="specs">Характеристики</button>
+          <button class="tab-btn" data-tab="reviews">Отзывы (<span id="reviewsCount">0</span>)</button>
+          <button class="tab-btn" data-tab="delivery">Доставка и гарантия</button>
+        </div>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="descriptionTab">
+            <div id="productDescription">
+              <!-- Описание товара -->
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="specsTab">
+            <table class="specs-table">
+              <!-- Детальные характеристики -->
+            </table>
+          </div>
+          
+          <div class="tab-pane" id="reviewsTab">
+            <div class="reviews-header">
+              <div class="average-rating">
+                <div class="rating-value" id="averageRating">0.0</div>
+                <div class="stars" id="averageStars"></div>
+                <div class="rating-count">На основе <span id="totalReviews">0</span> отзывов</div>
+              </div>
+              <button id="writeReviewBtn" class="primary-btn">Написать отзыв</button>
+            </div>
+            
+            <div class="reviews-list" id="reviewsList">
+              <!-- Список отзывов -->
+            </div>
+            
+            <div class="review-form-container" id="reviewFormContainer" style="display: none;">
+              <h4>Оставить отзыв</h4>
+              <form id="reviewForm">
+                <div class="form-group">
+                  <label>Рейтинг</label>
+                  <div class="rating-input">
+                    <div class="stars-input">
+                      <i class="far fa-star" data-rating="1"></i>
+                      <i class="far fa-star" data-rating="2"></i>
+                      <i class="far fa-star" data-rating="3"></i>
+                      <i class="far fa-star" data-rating="4"></i>
+                      <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="reviewRating" value="0">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="reviewText">Текст отзыва</label>
+                  <textarea id="reviewText" rows="5" placeholder="Поделитесь своим опытом использования товара..." required></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="primary-btn">Отправить отзыв</button>
+                  <button type="button" id="cancelReview" class="ghost-btn">Отмена</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="deliveryTab">
+            <div class="delivery-info">
+              <h4>Доставка</h4>
+              <ul>
+                <li>Курьерская доставка по Москве — 1-2 дня</li>
+                <li>Доставка по России — 2-5 дней</li>
+                <li>Самовывоз из пунктов выдачи</li>
+                <li>Бесплатная доставка при заказе от 10 000 ₽</li>
+              </ul>
+              
+              <h4>Гарантия</h4>
+              <ul>
+                <li>Официальная гарантия производителя — 12 месяцев</li>
+                <li>Возврат в течение 14 дней без объяснения причин</li>
+                <li>Обмен неисправного товара в течение 30 дней</li>
+                <li>Техническая поддержка 24/7</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Похожие товары -->
+      <section class="related-products">
+        <h3>Похожие товары</h3>
+        <div class="product-grid" id="relatedProducts">
+          <!-- Похожие товары -->
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <script type="module" src="product.js"></script>
+</body>
+</html>

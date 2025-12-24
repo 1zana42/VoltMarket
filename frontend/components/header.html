@@ -1,0 +1,57 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <a href="/" class="logo-link">
+        <img src="https://via.placeholder.com/48/e67e22/ffffff?text=VM" alt="VoltMarket logo" class="palette-thumb" />
+        <div>
+          <h1>VoltMarket</h1>
+          <p class="tagline">Мощные устройства. Прозрачные цены.</p>
+        </div>
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Главное меню">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="catalog.html" class="nav-link">Каталог</a>
+      <a href="categories.html" class="nav-link">Категории</a>
+      <a href="comparisons.html" class="nav-link">Сравнения</a>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link">Ещё <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+          <a href="orders.html">Мои заказы</a>
+          <a href="profile.html">Профиль</a>
+          <a href="sales.html">Акции</a>
+          <a href="help.html">Помощь</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Поиск товаров..." />
+        <button id="searchBtn" class="icon-btn"><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div id="userPanel" class="user-panel" style="display: none;">
+        <div class="user-dropdown">
+          <button class="user-btn">
+            <i class="fas fa-user-circle"></i>
+            <span id="userName"></span>
+          </button>
+          <div class="dropdown-content">
+            <a href="profile.html"><i class="fas fa-user"></i> Профиль</a>
+            <a href="orders.html"><i class="fas fa-shopping-bag"></i> Заказы</a>
+            <a href="comparisons.html"><i class="fas fa-balance-scale"></i> Сравнения</a>
+            <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+          </div>
+        </div>
+      </div>
+      
+      <button id="authBtn" class="ghost-btn">Войти</button>
+      <button id="cartBtn" class="primary-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,405 @@
+/* Добавлю в существующий styles.css */
+
+/* Поиск */
+.search-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#searchInput {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px;
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--accent-1);
+}
+
+/* Пользователь */
+.user-panel {
+    display: flex;
+    align-items: center;
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--accent-3);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.user-btn:hover {
+    background: var(--surface);
+}
+
+.user-dropdown {
+    position: relative;
+}
+
+.user-dropdown .dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    min-width: 200px;
+    display: none;
+    z-index: 100;
+    border: 1px solid #eee;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user-dropdown .dropdown-content a,
+.user-dropdown .dropdown-content button {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--accent-3);
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.user-dropdown .dropdown-content a:hover,
+.user-dropdown .dropdown-content button:hover {
+    background: var(--surface);
+}
+
+.user-dropdown .dropdown-content a i,
+.user-dropdown .dropdown-content button i {
+    margin-right: 8px;
+    width: 20px;
+}
+
+/* Категории */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+}
+
+.category-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--accent-3);
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    background: #f0f0f0;
+}
+
+.category-icon {
+    font-size: 32px;
+    color: var(--accent-1);
+    margin-bottom: 12px;
+}
+
+.category-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+.category-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Улучшенные карточки товаров */
+.product-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.compare-btn {
+    background: var(--surface);
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.compare-btn:hover {
+    background: #e9e9e9;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent-1);
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Улучшенная корзина */
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ddd;
+    background: var(--bg);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-display {
+    min-width: 26px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    color: var(--accent-1);
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: var(--accent-1);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    max-width: 300px;
+}
+
+.notification.success {
+    background: var(--success);
+}
+
+.notification.error {
+    background: var(--danger);
+}
+
+.notification.warning {
+    background: #f39c12;
+}
+
+.notification.info {
+    background: #3498db;
+}
+
+/* Иконки в info cards */
+.info-icon {
+    font-size: 32px;
+    color: var(--accent-1);
+    margin-bottom: 12px;
+}
+
+/* Футер */
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 36px 0;
+}
+
+.footer-section h4 {
+    margin: 0 0 16px 0;
+    color: var(--accent-3);
+}
+
+.footer-section a {
+    display: block;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.footer-section a:hover {
+    color: var(--accent-1);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--surface);
+    border-radius: 50%;
+    color: var(--accent-3);
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    background: var(--accent-1);
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Навигация */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    min-width: 180px;
+    display: none;
+    z-index: 100;
+    border: 1px solid #eee;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-dropdown .dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--accent-3);
+}
+
+.nav-dropdown .dropdown-content a:hover {
+    background: var(--surface);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.view-all {
+    color: var(--accent-1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Загрузка */
+.loading, .error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+}
+
+.error {
+    color: var(--danger);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #searchInput {
+        width: 150px;
+    }
+    
+    .nav-dropdown .dropdown-content {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        margin: 0 16px;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #searchInput {
+        display: none;
+    }
+    
+    .header-actions {
+        gap: 4px;
+    }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Аналогично другим страницам -->
+    <link rel="stylesheet" href="comparisons.css">
+</head>
+<body>
+    <!-- Общие элементы -->
+    
+    <main class="comparisons-page">
+        <div class="container">
+            <h1>Сравнение товаров</h1>
+            
+            <div class="comparisons-container">
+                <!-- Список сравнений пользователя -->
+                <div class="comparisons-list" id="comparisonsList">
+                    <div class="loading">Загрузка сравнений...</div>
+                </div>
+                
+                <!-- Создание нового сравнения -->
+                <div class="create-comparison">
+                    <h3>Создать новое сравнение</h3>
+                    <div class="create-form">
+                        <input type="text" id="comparisonName" placeholder="Название сравнения">
+                        <button id="createComparisonBtn" class="primary-btn">Создать</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Таблица сравнения (отображается при выборе сравнения) -->
+            <div class="comparison-table-container" id="comparisonTable" style="display: none;">
+                <div class="comparison-header">
+                    <h2 id="comparisonTitle"></h2>
+                    <button id="closeComparison" class="icon-btn">&times;</button>
+                </div>
+                
+                <div class="comparison-table">
+                    <!-- Таблица будет заполнена через JS -->
+                </div>
+                
+                <div class="comparison-actions">
+                    <button id="addMoreItems" class="ghost-btn">Добавить ещё товары</button>
+                    <button id="deleteComparison" class="danger-btn">Удалить сравнение</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script type="module" src="comparisons.js"></script>
+</body>
+</html>
